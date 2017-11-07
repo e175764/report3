@@ -9,7 +9,8 @@ package jp.ac.uryukyu.ie.e175764;
  * Created by tnal on 2016/11/13.
  */
 public class  Hero extends LivingThings {
-    public Hero(String name,int hitPoint,int attack){
+
+    public Hero(String name, int hitPoint, int attack){
         super(name,hitPoint,attack);
     }
 
@@ -30,19 +31,12 @@ public class  Hero extends LivingThings {
      * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
      * @param opponent 攻撃対象
      */
-    public void attack(LivingThings opponent) {
-        int damage = (int) (Math.random() * attack);
-        if (dead != true) {
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
-            opponent.wounded(damage);
-        }
-    }
 
     public void wounded(int damage) {
-        hitPoint -= damage;
-        if (hitPoint < 0) {
-            dead = true;
-            System.out.printf("%sは道半ばで力尽きてしまった。\n", name);
+        setHitPoint(getHitPoint() - damage);
+        if (getHitPoint() < 0) {
+            setDead(true);
+            System.out.printf("%sは道半ばで力尽きてしまった。\n", getName());
         }
     }
     /**

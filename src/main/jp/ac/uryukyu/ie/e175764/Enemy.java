@@ -30,13 +30,7 @@ public class Enemy extends LivingThings {
      * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
      * @param hero 攻撃対象
      */
-    public void attack(LivingThings opponent) {
-        int damage = (int) (Math.random() * attack);
-        if (dead != true) {
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
-            opponent.wounded(damage);
-        }
-    }
+
     /**
      * 自身へ攻撃されたときのダメージ処理をするメソッド。
      * 指定されたダメージを hitPoint から引き、死亡判定を行う。
